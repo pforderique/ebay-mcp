@@ -10,7 +10,6 @@
 [![Contributors Welcome](https://img.shields.io/badge/contributors-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/yosefhayim-ebay-api-mcp-server-badge.png)](https://mseep.ai/app/yosefhayim-ebay-api-mcp-server)
-<a href="https://www.buymeacoffee.com/yosefhayim" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 A [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server providing AI assistants with comprehensive access to eBay's Sell APIs. Includes **325 tools** for inventory management, order fulfillment, marketing campaigns, analytics, developer tools, and more.
 
@@ -652,10 +651,3 @@ Thanks to all the amazing contributors who have helped make this project better!
 - [eBay Developers Program](https://developer.ebay.com/) for API access
 - [Model Context Protocol](https://modelcontextprotocol.io/) for the MCP specification
 
----
-
-<div align="center">
-
-**[Support this project](https://www.buymeacoffee.com/yosefhayim)** | Created by [Yosef Hayim Sabag](https://github.com/YosefHayim)
-
-</div>
