@@ -112,22 +112,20 @@ export class TokenVerifier {
       token_type_hint: 'access_token',
     };
 
-    // Add client credentials if provided
     const headers: Record<string, string> = {
       'Content-Type': 'application/x-www-form-urlencoded',
     };
 
+    if (this.config.clientId && this.config.clientSecret) {
+      const credentials = Buffer.from(
+        `${this.config.clientId}:${this.config.clientSecret}`
+      ).toString('base64');
+      headers['Authorization'] = `Basic ${credentials}`;
+    }
+
     const params = new URLSearchParams({
       token: requestData.token,
     });
-
-    if (this.config.clientId) {
-      params.set('client_id', this.config.clientId);
-    }
-
-    if (this.config.clientSecret) {
-      params.set('client_secret', this.config.clientSecret);
-    }
 
     // Make introspection request
     try {
