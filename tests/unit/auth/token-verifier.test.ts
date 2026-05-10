@@ -103,7 +103,12 @@ describe('TokenVerifier', () => {
       expect(axios.post).toHaveBeenCalledWith(
         mockMetadata.introspection_endpoint,
         expect.any(URLSearchParams),
-        { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
+        {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            Authorization: `Basic ${Buffer.from('mcp-server:secret').toString('base64')}`,
+          },
+        }
       );
     });
 
