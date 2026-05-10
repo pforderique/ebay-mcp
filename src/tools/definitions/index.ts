@@ -23,6 +23,7 @@ import { communicationTools } from './communication.js';
 import { otherApiTools } from './other.js';
 import { developerTools } from './developer.js';
 import { tradingTools } from './trading.js';
+import { browseTools } from './browse.js';
 
 // Export individual categories
 export {
@@ -38,6 +39,7 @@ export {
   otherApiTools,
   developerTools,
   tradingTools,
+  browseTools,
 };
 
 /** Combined tool definition catalog used by registry validation and exports. */
@@ -54,6 +56,7 @@ export const allTools = [
   ...otherApiTools,
   ...developerTools,
   ...tradingTools,
+  ...browseTools,
 ];
 
 /** Re-exported tool definition type for category catalog consumers. */

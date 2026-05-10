@@ -11,6 +11,7 @@ import { otherApiHandlers } from './other.js';
 import { taxonomyHandlers } from './taxonomy.js';
 import { tokenManagementHandlers } from './token-management.js';
 import { tradingHandlers } from './trading.js';
+import { browseHandlers } from './browse.js';
 import type { ToolHandlerMap } from './types.js';
 
 /** Public handler types exported with the combined handler catalog. */
@@ -31,4 +32,5 @@ export const toolHandlers: ToolHandlerMap = {
   ...otherApiHandlers,
   ...developerHandlers,
   ...tradingHandlers,
+  ...browseHandlers,
 };

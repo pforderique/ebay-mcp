@@ -11,6 +11,7 @@ import {
   taxonomyTools,
   tokenManagementTools,
   tradingTools,
+  browseTools,
   type ToolDefinition,
 } from '@/tools/definitions/index.js';
 import { toolHandlers, type ToolHandler } from '@/tools/tool-handlers/index.js';
@@ -47,6 +48,7 @@ const toolDefinitions: ToolDefinition[] = [
   ...otherApiTools,
   ...developerTools,
   ...tradingTools,
+  ...browseTools,
 ];
 
 let cachedEntries: ToolEntry[] | undefined;
