@@ -34,9 +34,7 @@ const chatConnectorTools = chatGptTools.filter(
   (tool) => tool.name === 'search' || tool.name === 'fetch'
 );
 
-const readOnlyMode = process.env.EBAY_READ_ONLY === 'true';
-
-const toolDefinitions: ToolDefinition[] = ([
+const toolDefinitions: ToolDefinition[] = [
   ...chatConnectorTools,
   ...tokenManagementTools,
   ...accountTools,
@@ -51,10 +49,18 @@ const toolDefinitions: ToolDefinition[] = ([
   ...developerTools,
   ...tradingTools,
   ...browseTools,
-] as ToolDefinition[]).filter((t) => {
-  if (!readOnlyMode) return true;
-  return /^(ebay_get|ebay_find|ebay_list|ebay_search|search|fetch)/.test(t.name);
-});
+].filter((t) => [
+  'ebay_find_completed_items',   // sold listings research
+  'ebay_get_active_listings',    // my current listings
+  'ebay_get_listing',            // single listing detail
+  'ebay_get_orders',             // my recent orders
+  'ebay_get_order',              // single order detail
+  'ebay_get_traffic_report',     // listing performance
+  'ebay_get_inventory_items',    // my inventory
+  'ebay_get_inventory_item',     // single inventory item
+  'search',                      // general search
+  'fetch',                       // general fetch
+].includes(t.name));
 
 let cachedEntries: ToolEntry[] | undefined;
 
