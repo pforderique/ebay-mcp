@@ -249,17 +249,12 @@ describe('Tools Layer', () => {
       const tools = getToolDefinitions();
       const toolNames = tools.map((t) => t.name);
 
-      // Check for tools from each category
-      expect(toolNames).toContain('ebay_get_oauth_url'); // tokenManagementTools
-      expect(toolNames).toContain('ebay_get_custom_policies'); // accountTools
-      expect(toolNames).toContain('ebay_get_inventory_items'); // inventoryTools
-      expect(toolNames).toContain('ebay_get_orders'); // fulfillmentTools
-      expect(toolNames).toContain('ebay_get_campaigns'); // marketingTools
-      expect(toolNames).toContain('ebay_get_traffic_report'); // analyticsTools
-      expect(toolNames).toContain('ebay_get_currencies'); // metadataTools
-      expect(toolNames).toContain('ebay_get_category_tree'); // taxonomyTools
-      expect(toolNames).toContain('ebay_send_message'); // communicationTools
-      expect(toolNames).toContain('ebay_get_user'); // otherApiTools
+      // Check for whitelisted tools
+      expect(toolNames).toContain('ebay_find_completed_items');
+      expect(toolNames).toContain('ebay_get_active_listings');
+      expect(toolNames).toContain('ebay_get_inventory_items');
+      expect(toolNames).toContain('ebay_get_orders');
+      expect(toolNames).toContain('ebay_get_traffic_report');
     });
   });
 
