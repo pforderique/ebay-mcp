@@ -34,7 +34,9 @@ const chatConnectorTools = chatGptTools.filter(
   (tool) => tool.name === 'search' || tool.name === 'fetch'
 );
 
-const toolDefinitions: ToolDefinition[] = [
+const readOnlyMode = process.env.EBAY_READ_ONLY === 'true';
+
+const toolDefinitions: ToolDefinition[] = ([
   ...chatConnectorTools,
   ...tokenManagementTools,
   ...accountTools,
@@ -49,7 +51,10 @@ const toolDefinitions: ToolDefinition[] = [
   ...developerTools,
   ...tradingTools,
   ...browseTools,
-];
+] as ToolDefinition[]).filter((t) => {
+  if (!readOnlyMode) return true;
+  return /^(ebay_get|ebay_find|ebay_list|ebay_search|search|fetch)/.test(t.name);
+});
 
 let cachedEntries: ToolEntry[] | undefined;
 
